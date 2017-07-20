@@ -1,0 +1,22 @@
+{
+    "name": "kunpeng/captcha",
+    "description": "Captcha Package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wang Kunpeng",
+            "email": "745891830@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-gd": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "kunpeng\\Captcha\\": "/"
+        }
+    }
+}
