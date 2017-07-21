@@ -10,7 +10,7 @@ namespace kunpeng\Captcha;
 
 class Captcha
 {
-    private $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';//随机因子
+    private $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ123456789';//随机因子
     private $code;//验证码
     private $codelen = 4;//验证码长度
     private $width = 130;//宽度
@@ -19,6 +19,7 @@ class Captcha
     private $font;//指定的字体
     private $fontsize = 20;//指定字体大小
     private $fontcolor;//指定字体颜色
+    private $key = 'github.com/kunpeng/captcha';
 
     //构造方法初始化
     public function __construct()
@@ -77,7 +78,7 @@ class Captcha
     }
 
     //对外生成
-    public function doimg()
+    public function createImg()
     {
         $this->createBg();
         $this->createCode();
@@ -86,9 +87,19 @@ class Captcha
         $this->outPut();
     }
 
-    //获取验证码
-    public function getCode()
+    //对外获取验证码
+    public function getCode($code = '')
     {
-        return strtolower($this->code);
+        if (empty($code))
+            $code = $this->code;
+        return $this->encryptCode(strtolower($code));
+    }
+
+    //加密验证码
+    private function encryptCode($str)
+    {
+        $key = substr(md5($this->key), 11, 15);
+        $str = substr(md5($str), 8, 10);
+        return md5($key . $str);
     }
 }

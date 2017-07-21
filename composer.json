@@ -1,12 +1,17 @@
 {
     "name": "kunpeng/captcha",
     "description": "Captcha Package",
+    "keywords": ["captcha", "laravel"],
+    "homepage": "https://github.com/kunpeng/captcha",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Wang Kunpeng",
-            "email": "745891830@qq.com"
+            "homepage": "https://github.com/kunpeng",
+            "email": "745891830@qq.com",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",

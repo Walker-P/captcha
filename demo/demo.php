@@ -8,4 +8,6 @@
 include(__DIR__.'/../Captcha.php');
 use kunpeng\Captcha\Captcha;
 $captcha = new Captcha();
-$captcha->doimg();
+$captcha->createImg();
+session_start();
+$_SESSION['captcha'] = $captcha->getCode();//验证码保存到SESSION中
